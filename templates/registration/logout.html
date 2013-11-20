@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+</br></br></br></br></br>
+<div class="section text-center">
+	<div class="container">
+	    <div class="row">
+	    	<div class="col-lg-12">
+	           	<h2>You Logged Out</h2>
+	            <p>We hope you come back soon</p>
+	            <a href="/" class="btn btn-success btn-lg">Back to Booker</a>
+	            <a href="/accounts/login" class="btn btn-success btn-lg">Back to Login</a>
+	            <hr>
+	        </div>
+	    </div><!-- /.row -->
+	</div>
+</div>
+{% endblock %}
+
+

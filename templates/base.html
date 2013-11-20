@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %} | Booker</title>
+
+    <!-- Bootstrap core CSS 
+    <link href="../media/template3/css/bootstrap.css" rel="stylesheet"> -->
+
+    <!-- Add custom CSS here -->
+    <link href="../media/template3/css/modern-business.css" rel="stylesheet">
+    <link href="../media/template3/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/media/css/app.css">
+
+    {% block head %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          <a class="navbar-brand" href="/">Booker</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal">Terms and Conditions</a></li>  
+            <li class="dropdown">
+              {% if user.is_authenticated %}
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/profile/{{user.username}}/">Profile</a></li>
+                  <li><a href="/mybooks/">My Books</a></li>
+                  <li><a href="#">Favorites</a></li>
+                  <li><a href="{% url auth_logout %}">Logout</a></li>
+                </ul>
+            {% else %}
+              <a class="btn-link" href="{% url auth_login %}">Login</a>
+            {% endif %}
+            </li>    
+            <!--
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
+                <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
+                <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
+                <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
+                <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="blog-home-1.html">Blog Home 1</a></li>
+                <li><a href="blog-home-2.html">Blog Home 2</a></li>
+                <li><a href="blog-post.html">Blog Post</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="full-width.html">Full Width Page</a></li>
+                <li><a href="sidebar.html">Sidebar Page</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="404.html">404</a></li>
+                <li><a href="pricing.html">Pricing Table</a></li>
+              </ul>
+            </li>
+            -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+  
+
+  <div class="container">
+      <hr>
+      <footer>
+        <div class="row">
+          <div class="col-md-4">
+            <p>Copyright &copy; Booker 2013 -<a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions</a></p>
+
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled list-inline list-social-icons">
+              <li class="tooltip-social facebook-link"><a href="https://www.facebook.com/booker.editorial" 
+              data-toggle="tooltip" data-placement="top" title="Facebook"><i class="icon-facebook-sign icon-2x"></i></a></li>
+              <li class="tooltip-social twitter-link"><a href="https://twitter.com/bookereditorial" 
+              data-toggle="tooltip" data-placement="top" title="Twitter"><i class="icon-twitter-sign icon-2x"></i></a></li>
+              <li class="tooltip-social google-plus-link"><a href="https://plus.google.com/u/0/102901707878701555634/posts" data-toggle="tooltip" data-placement="top" title="Google+"><i class="icon-google-plus-sign icon-2x"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div><!-- /.container -->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- Placed at the end of the document so the pages load faster 
+  <script src="../media/template3/js/jquery.js"></script>-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="../media/template3/js/bootstrap.js"></script>
+  <script src="../media/template3/js/modern-business.js"></script>
+
+  {% block footer %}
+  {% endblock %}
+    
+  </body>
+
+</html>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Terms and Conditions</h4>
+        </div>
+        <div class="modal-body">
+          <h1>I - <em>Booker</em> terms and conditions</h1>
+          <p>This Agreement governs the use of the services provided by Booker. Read carefully this agreement, if you do not understand the meaning of the above, does not meet the conditions required or not accept the content, you are requested to cancel this registration process or close this window, otherwise accessed at your own risk. Booker.com does not force anyone to sign this agreement and to use the portal. Is only the user who signed voluntarily to access the use of Booker.com, accepting the conditions established.</p>
+
+          <h3>Introduction</h3>
+
+          <p>Booker.com, founded on October 20, 2013, is a portal for sharing disclose and publish digital books, written by users.It applies a total freedom of expression, therefore Booker.com is not responsible for what users write and publish in Booker.com. The user is responsible for what he/she post on Booker.com.Booker.com able to rank the most read books most qualified, among other categories.Users can leave their books open to the public, so all Booker.com users can access them. Also, users can filter their books that can only be accessed by friends.Specifically the user is cautioned that all books published and opened to the generalpublic may be disseminated by Booker.com, manually or automatically, on the Twitter and Facebook that belong to Booker.com portal. To that effect with the acceptance of this contract the user gives expressly consent to the dissemination on Twitter or Facebook or similar communication networks that may appear in the future belonging to Booker.com.By accepting this Agreement, you (the user) agree to receive messages from the portaland its affiliates, if you (the user) don´t want to receive messages you (the user) can write an email to bookereditorial@gmail.com with a message with the title "I do not want messages".Booker.com requires that every literary work published on this site is original by the signeror, in some cases, where applicable, unless it has to be expressly stated the author full name or source which is extracted, so that not misleading or doubt about its authorship.The user can remove, close or suspend his account at any time. Also, the user can delete comments for other users or remove users from his network friends. On the other hand, Booker is not obliged to delete comments made ​​by users to books that are open to the general public (if they are made "public").The User is obliged and agrees to use the services and to access Booker.com according to the laws, morals, good customs and public order and any other standard applicable in the country from the user connects.If you do not agree to this contract and other rules please do not access this website or use the content or services provided.</p>
+
+          <h1>II - Terms and conditions of use</h1>
+
+          <p>When using any of the content and services provided by or through Booker.com, the user accept and agree to be legally obligated and to comply with the following terms and conditions of use, including its annex, as well as the rules and regulations of operation of this website.</p>
+
+          <h3>TERMS</h3>
+
+          <p>• The term "Service" means any and all Internet-related services provided by or through Booker.com</p>
+          <p>• The term "Content" means any and all information, data, material, text, images, videos, audio, and software provided by Booker.com. This site is not responsible for the user contributed and all those (external services, links ....) not Booker.com own creation.</p>
+          <p>• The term "User" means any person accessing or using any Service or Content, whether or not that person has an account with Booker.com Any person accessing this website and make use of their services shall be considered user.</p>
+          <p>• Any change that could be made in the future in this contract and other provisions contained in the website will be made ​​freely and without prior notice to users, meaning that the user accepts this agreement and other rules and amendments each time the user enters to Booker.com and make use of it.</p>
+
+          <p>In any service offered on the portal , Booker.com reserves the right to modify, add or remove unilaterally , at any time and without notice , either existence , content, and its configuration , conditions for access to the page or to the use of any particular use of the services , free or not his character , his character or not booked in any of the publications and other services , either partially or in full.Managers can convene and organize various activities such as workshops and competitions under the rules established for the activity. Likewise, the administration can organize a jury, which could be conformed by portal members elected by the administration. The user expressly agrees that his subjects can be subjected to such valuation, can be selected and will be posted by the administration.Booker.com reserves the right to close an account or remove a book or any other content that has been posted by the user on the page or discontinue any of its services without the obligation to report to the users the decision.Booker.com can delete, without notice, books published, comments or user posts.It informs the user that Booker.com has no functions related with file custody, protection or registration, and is not obliged to keep them indefinitely on its website, and therefore, it is recommended and is the responsibility of each user to "save" (copy, archive or backup) Booker.com what you post.Booker is not responsible for the loss, for technical reasons. mistake, hacking, expulsion, user inactivity or any other reason related with erasing.Booker.com only provides users the capability to use the Services offered (provided they are not restricted), being the User the only responsible to have the equipment necessary to establish a connection and access to the Internet (World Wide Web or www) through any telephone or other connection through technology known or unknown. User assumes exclusively the costs associated with such access and deficiencies.</p>
+
+          <h1>III - Privacy Policy</h1>
+
+          <p>The same is applicable to everything said in this contract on the use of data provided by the user and on their performance.With this in mind, it is stated that respects the privacy Booker.com, as required by law, and only keeps in a database personal data that was made ​​available freely and voluntarily by users.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

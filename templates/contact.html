@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Contact{% endblock %}
+
+{% load bootstrap %}
+
+{% block content %}
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h1 class="page-header">Contact <small>Be part of this!</small></h1>
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Contact</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+  <div class="container">
+  {% if info_send %}
+
+    <h3>Tu mensaje ha sido recibido, Gracias!</h3>
+    <a href="/" class="btn btn-default btn-lg">Go back to Booker site</a>
+
+  {% else %}
+
+      <form action="." method="POST" class="form">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <br/><br/>
+        <a href="/"><input class="btn btn-primary" type="submit" value="Enviar"></a>
+        <a class="btn btn-default" href="/">Cancelar</a>
+      </form>
+      
+  {%endif%}
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Profile{% endblock %}
+
+{% load bootstrap %}
+
+{% block content %}
+
+</br></br>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">Profile <small>Be Booker!</small></h1>
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Profile</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!--
+  <div class="container">
+    {% if user %}
+      <h1>{{user.username}}</h1>
+      {% if user.get_profile.photo %}
+        <img src="/media/{{user.get_profile.photo}}">
+        {% endif %}
+    {% else %}
+      <h1>No Hay User</h1>
+    {% endif %}
+  </div>
+  -->
+<div class="container">
+  <div class="row ">
+    <div class="col-lg-4">
+      <h5><strong>Nombre:</strong> {{user.username}}</br>
+      <strong>Email:</strong> {{user.email}}</br>
+      <strong>Facebook:</strong> <a target="_blank" href="{{user.get_profile.facebook}}">Link</a><br/>
+      <strong>Twitter:</strong> <a target="_blank" href="{{user.get_profile.twitter}}">Link</a></br>
+      <strong>Google Plus:</strong> <a target="_blank" href="{{user.get_profile.gplus}}">Link</a></h5>
+    </div>
+
+    <div class="col-lg-3">
+      <img src="/media/{{user.get_profile.photo}}" class="img img-thumbnail" width="50%" />
+    </div>
+
+    <div class="col-lg-2">
+      <p><a class="btn btn-primary btn-block" href="/profile/{{user.username}}/edit">Edit Profile</a></p>
+      <p><a class="btn btn-default btn-block" href="/mybooks/">My Books</a></p>
+      <p><a class="btn btn-warning btn-block" href="#">My Favorites</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

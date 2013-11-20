@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="fill" style="background-image:url(/media/images/books5.JPG);"></div>
+            <div class="carousel-caption">
+              <h1>Let us read what you write</h1>
+            </div>
+          </div>
+          <div class="item">
+            <div class="fill" style="background-image:url(/media/images/books6.JPG);"></div>
+            <div class="carousel-caption">
+              <h1>Share, think, read</h1>
+            </div>
+          </div>
+          <div class="item">
+            <div class="fill" style="background-image:url(/media/images/books.jpg);"></div>
+            <div class="carousel-caption">
+              <h1>Be Free</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
+    </div>
+
+    <div class="section-colored text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Now Booker is under construction</h2>
+            <p>so, you can register to receive notifications about new content Booker</p>
+            <a href="/accounts/register" class="btn btn-primary btn-lg">Register</a>
+            <p>Or, send us a feedback or comment about Booker</p>
+            <a href="/contact" class="btn btn-default btn-lg">Comment</a>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.section-colored -->
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4" >
+            <h3><i class="icon-ok-circle"></i> Start in Booker</h3>
+            <p>You can log in <em>Booker</em> , just sign in with your username from different social networks.</p>
+            <a href="/accounts/login" class="btn btn-primary btn-lg">Join us !</a>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h3><i class="icon-pencil"></i> Write everything you want</h3>
+            <p>Have an idea? As with <em>Booker</em> can translate it and share it with your friends. Be free, we've got you covered.</p>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h3><i class="icon-folder-open-alt"></i> Search and share </h3>
+            <p>Here you find the topics that you love more, and can also share..</p>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.section -->
+
+    <div class="section-colored text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Leave a comment</h2>
+            <p>We want to grow day by day, and is very important to help us, so leave a comment with areas for improvement or just a "push", and be a part of this project..</p>
+            <a href="/contact" class="btn btn-success btn-lg">Comment</a>
+            <hr>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.section-colored -->
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h2>The book of the Week</h2>
+            <h4>Book Name</h4>
+            <ul>
+              <li>Author</li>
+              <li>Topic</li>
+              <li>Ranking</li>
+              <li>View</li>
+              <li>Comment</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <img class="img-thumbnail" src="../media/images/book25.JPG">
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.section -->
+
+    <div class="section-colored">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <img class="img-thumbnail" src="../media/images/dosto.jpg">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h2>The author of the Week</h2>
+            <h4>Author Name</h4>
+            <ul>
+              <li>Ranking</li>
+              <li>Comments</li>
+              <li>Works</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.section-colored -->
+
+  
+
+{% endblock %}
